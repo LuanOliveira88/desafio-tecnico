@@ -1,4 +1,4 @@
-@startuml
+@startuml db diagrams
 
 entity polls{
     *id: uuid
