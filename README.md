@@ -11,7 +11,7 @@ Nesse desafio, você deve construir um sistema de enquetes em realtime, permitin
 
 ## Diagrama do DB
 
-![Diagrama do DB](er_diagram.png)
+![Diagrama do DB](assets/images/er_diagram.png)
 
 ## Requisitos
 
