@@ -1,0 +1,22 @@
+@startuml
+
+entity polls{
+    *id: uuid
+    --
+    question: varchar
+    status: varchar
+    start_date: timestamp
+    end_date: timestamp
+}
+
+entity options{
+    *id: uuid
+    --
+    poll_id: uuid
+    text: varchar
+    votes: number
+}
+
+' polls|o--|| options : contém
+options::poll_id }--o| polls::id
+@enduml
