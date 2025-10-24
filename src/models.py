@@ -1,6 +1,7 @@
 from enum import Enum
 import uuid
 from datetime import datetime
+
 from sqlalchemy.dialects import postgresql
 from sqlalchemy import types
 from sqlalchemy import DateTime, String, ForeignKey
@@ -34,7 +35,7 @@ class Polls(Base):
     end_date: Mapped[datetime] = mapped_column(DateTime, nullable=False)
 
     options: Mapped[list["Options"]] =relationship(
-        back_populates="poll", 
+        back_populates="polls", 
         cascade="all, delete-orphan"
     )
 
@@ -56,4 +57,3 @@ class Options(Base):
 
     polls: Mapped["Polls"] = relationship(back_populates="options")
 
-    
