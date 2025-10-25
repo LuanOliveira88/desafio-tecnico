@@ -14,15 +14,17 @@ def session():
     Base.metadata.create_all(engine)
     
     SessionLocal = sessionmaker(bind=engine)
+
     session = SessionLocal()
-
-    event.listen(SessionLocal, 'before_commit', before_commit_listener)
-    # event.listen(Polls)
-
+    event.listen(session, 'before_commit', before_commit_listener)
+    
     yield session  
     
-    session.rollback()
-    session.close()
+    try:
+        session.rollback()
+    
+    finally:
+        session.close()
 
 
 @pytest.fixture(scope='function')
